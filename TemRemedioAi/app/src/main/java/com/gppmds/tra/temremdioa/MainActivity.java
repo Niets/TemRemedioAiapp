@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,12 +21,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Establish connection with parse server
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                        .applicationId("TemRemedioAi")
+                        .server("http://temremedioai.herokuapp.com/temremedioai/Class")
+                        .clientKey("kijasijijasiasjsiajalllkaosiajhsis")
+
+                        .build()
+        );
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
             }
         });
     }
