@@ -3,7 +3,6 @@ package com.gppmds.tra.temremdioa;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -13,8 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     Context ctx;
@@ -30,16 +27,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         ctx = this;
         helloWorld = (TextView) findViewById(R.id.hello);
 
-        // Establish connection with parse server
-        Parse.initialize(new Parse.Configuration.Builder(this)
-                        .applicationId("TemRemedioAi")
-                        .server("http://temremedioai.herokuapp.com/temremedioai/Class")
-                        .clientKey("kijasijijasiasjsiajalllkaosiajhsis")
-
-                        .build()
-        );
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,9 +62,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             return true;
         }
 
-        if (id == R.id.search) {
-
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -84,8 +70,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return false;
     }
 
-    public boolean onQueryTextChange(String newText){
+    public boolean onQueryTextChange(String newText) {
         helloWorld.setText(newText);
         return false;
     }
+
+
 }
