@@ -12,6 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     Context ctx;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         ctx = this;
         helloWorld = (TextView) findViewById(R.id.hello);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
@@ -74,6 +78,5 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         helloWorld.setText(newText);
         return false;
     }
-
 
 }
